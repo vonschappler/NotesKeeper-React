@@ -13,21 +13,12 @@ export default {
         screen: "100dvh",
       },
       boxShadow: {
-        von: "#1b1c1d 0 0 5px",
-        "von-inset": "inset #1b1c1d 0 0 5px",
-        "von-inverted": "#dedede 0 0 5px",
-      },
-      colors: {
-        von: {
-          darkGray: "#1b1c1d",
-          lightGray: "#dedede",
-          teal: "#16b2ab",
-        },
+        DEFAULT: "#1b1c1d 0 0 5px",
+        inset: "inset #1b1c1d 0 0 5px",
+        inverted: "#dedede 0 0 5px",
       },
     },
   },
-  corePlugins: {
-    // preflight: false,
-  },
+  corePlugins: {},
   plugins: [],
 };

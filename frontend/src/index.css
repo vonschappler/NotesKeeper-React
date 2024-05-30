@@ -20,17 +20,10 @@
 }
 
 @layer components {
-  .header {
-    @apply !h-[400px] bg-yellow-400;
-  }
   .form {
-    @apply grid grid-flow-row;
     & .formError {
       @apply bg-red-400;
     }
-  }
-  .footer {
-    @apply bg-von-teal;
   }
 }
 
