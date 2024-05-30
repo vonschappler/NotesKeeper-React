@@ -3,12 +3,35 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth !important;
+    /* line-height: 1.5rem; */
+  }
+  main {
+    @apply grid grow items-start;
+  }
   #root {
-    @apply bg-red-300;
+    @apply flex h-screen flex-col bg-slate-600 transition-all duration-700 ease-in-out;
   }
 }
 
 @layer components {
+  .header {
+    @apply !h-[400px] bg-yellow-400;
+  }
+  .form {
+    @apply grid grid-flow-row;
+    & .formError {
+      @apply bg-red-400;
+    }
+  }
+  .footer {
+    @apply bg-von-teal;
+  }
 }
 
 @layer utilities {

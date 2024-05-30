@@ -19,6 +19,7 @@ module.exports = {
     "react/prop-types": "off",
     "react/jsx-uses-react": "warn",
     "react/jsx-uses-vars": "warn",
+    "react/no-unknown-property": "off",
     "no-unused-vars": [
       "warn",
       { vars: "all", args: "after-used", ignoreRestSiblings: false },

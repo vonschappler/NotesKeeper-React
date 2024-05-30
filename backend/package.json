@@ -5,7 +5,20 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "nodemon ."
+    "dev": "nodemon .",
+    "dev:db:create": "npx sequelize-cli db:create",
+    "dev:db:drop": "npx sequelize-cli db:drop",
+    "dev:migrations:run": "npx sequelize-cli db:migrate",
+    "dev:migration:undo": "npx sequelize-cli db:migrate:undo",
+    "dev:migrations:undo:to": "npx sequelize-cli db:migrate:undo:all --to",
+    "dev:migrations:undo:all": "npx sequelize-cli db:migrate:undo:all",
+    "dev:migration:create": "npx sequelize-cli migration:generate --name",
+    "dev:seed:create": "npx sequelize-cli seed:generate --name",
+    "dev:seed:undo": "npx sequelize-cli db:seed:undo",
+    "dev:seeds:undo:to": "npx sequelize-cli db:seed:undo:all --to",
+    "dev:seeds:undo:all": "npx sequelize-cli db:seed:undo:all",
+    "dev:seeds:run:to": "npx sequelize-cli db:seed --seed",
+    "dev:seeds:run": "npx sequelize-cli db:seed:all"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -14,6 +27,7 @@
     "pg": "^8.11.5",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.3",
-    "sequelize-cli": "^6.6.2"
+    "sequelize-cli": "^6.6.2",
+    "uuid": "^9.0.1"
   }
 }
