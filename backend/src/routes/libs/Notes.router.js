@@ -4,6 +4,7 @@ import { notesController as controller } from '../../controlers/index.js';
 const notesRouter = Router();
 
 notesRouter.get('/', controller.getNotes);
+notesRouter.post('/', controller.addNote);
 // notesRouter.post('/', controller.addNotes);
 // notesRouter.get('/:id', controller.getNoteById);
 // notesRouter.patch('/:id', controller.updateNote);

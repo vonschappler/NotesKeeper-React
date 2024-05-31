@@ -2,7 +2,7 @@ import { Add, Close } from "@mui/icons-material";
 import { useForm } from "react-hook-form";
 
 import { devNotes } from "../devData/devNotes";
-import { sendForm } from "../services/database";
+// import { sendForm } from "../services/database";
 
 import {
   Card,
@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import Form from "../ui/Form";
 import InputField from "../ui/InputField";
-import NotesList from "../ui/NotesList";
+import NotesList from "../features/notes/NotesList";
 
 const Home = () => {
   const { formState, reset, handleSubmit, control, register, watch } = useForm({
@@ -27,16 +27,16 @@ const Home = () => {
   const { errors } = formState;
 
   const submitForm = async (data) => {
-    await sendForm(data);
+    // await sendForm(data);
   };
 
   return (
     <Grid container className="mx-auto flex w-[85%] flex-col gap-10">
-      <Grid item>
+      <Grid item className="mt-5">
         <Form
           onSubmit={handleSubmit(submitForm)}
           controller={control}
-          className="mx-auto mt-5 w-[350px] transition-all md:w-[500px]"
+          className="mx-auto  w-[350px] transition-all md:w-[500px]"
           noValidate
         >
           <Card className="relative rounded-lg bg-slate-400 object-cover shadow duration-500">
@@ -107,7 +107,10 @@ const Home = () => {
           </Card>
         </Form>
       </Grid>
-      <Grid item>
+      <Grid
+        item
+        className="mb-5 h-full rounded-lg bg-slate-900/50  py-5 shadow"
+      >
         <NotesList notes={devNotes} />
       </Grid>
     </Grid>

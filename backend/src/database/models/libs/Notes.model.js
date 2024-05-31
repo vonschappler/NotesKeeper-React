@@ -6,7 +6,7 @@ const Notes = database.define('notes', {
   id: {
     type: DataTypes.UUID(),
     primaryKey: true,
-    defaultValue: uuid(),
+    defaultValue: () => uuid(),
   },
   title: {
     type: DataTypes.STRING(100),

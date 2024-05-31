@@ -11,6 +11,14 @@ const get = async (req, res, next, Model, options) => {
   res.send({ data });
 };
 
+const add = async (req, res, next, Model, options) => {
+  const toInsert = req.body;
+  const result = await Model.create(toInsert);
+
+  if (!result) return next('Some error trying to add data');
+  return res.send(result);
+};
+
 // const getById = async (req, res, next, Model, options) => {
 //   const queryOptions = prepQuery(req, options);
 //   // const tableName = Model.tableName;
@@ -30,7 +38,7 @@ const get = async (req, res, next, Model, options) => {
 // };
 
 const factory = {
-  // add,
+  add,
   get,
   // rem,
   // rst,

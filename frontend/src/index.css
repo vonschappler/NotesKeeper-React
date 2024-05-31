@@ -11,11 +11,15 @@
     scroll-behavior: smooth !important;
     /* line-height: 1.5rem; */
   }
+
+  body {
+    @apply bg-slate-600;
+  }
   main {
     @apply grid grow items-start;
   }
   #root {
-    @apply flex h-screen flex-col bg-slate-600 transition-all duration-700 ease-in-out;
+    @apply flex h-screen flex-col transition-all duration-700 ease-in-out;
   }
 }
 
