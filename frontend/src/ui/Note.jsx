@@ -7,9 +7,9 @@ import {
   CardHeader,
   Divider,
 } from "@mui/material";
-import { useDeleteNote } from "../features/notes/useDeleteNote";
-import EditNote from "../features/notes/EditNote";
 import { useState } from "react";
+import EditNote from "../features/notes/EditNote";
+import { useDeleteNote } from "../features/notes/useDeleteNote";
 
 const Note = ({ note }) => {
   const { deleteNote } = useDeleteNote();
@@ -18,15 +18,13 @@ const Note = ({ note }) => {
 
   const handleDelete = (id) => {
     deleteNote(id);
-    // alert(id);
   };
 
   const handleOpen = (toEdit) => {
-    console.log({ handleOpen: toEdit });
     setOpen((curVal) => !curVal);
     setEdtNote((note) => toEdit);
-    console.log({ currentNote: edtNote });
-    // !open && setEdtNote({});
+
+    open && setEdtNote({});
   };
 
   return (
@@ -38,10 +36,13 @@ const Note = ({ note }) => {
           className="text-2xl font-extrabold"
         />
         <Divider variant="middle" className="bg-slate-900" />
-        <CardContent className="flex flex-col gap-3">
-          <p>{note.content}</p>
+        <CardContent className="-mb-3 flex flex-col gap-3">
+          <span>{note.content}</span>
+          <span className="w-full text-right text-xs opacity-60">
+            Created at: {new Date(note.createdAt).toLocaleString()}
+          </span>
         </CardContent>
-        <CardActions className="flex justify-end">
+        <CardActions className="mt-2 flex justify-end bg-slate-500 ">
           <Button
             className="transiton-all flex items-center justify-center gap-2 bg-slate-700 px-4 text-slate-300 duration-500 hover:bg-slate-500"
             onClick={() => handleOpen(note)}

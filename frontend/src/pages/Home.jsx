@@ -1,10 +1,4 @@
 import { Add, Close } from "@mui/icons-material";
-import { useForm } from "react-hook-form";
-
-import { devNotes } from "../devData/devNotes";
-import { useAddNote } from "../features/notes/useAddNote";
-// import { sendForm } from "../services/database";
-
 import {
   Card,
   CardActions,
@@ -13,10 +7,11 @@ import {
   Grid,
   IconButton,
 } from "@mui/material";
+import { useForm } from "react-hook-form";
+import NotesList from "../features/notes/NotesList";
+import { useAddNote } from "../features/notes/useAddNote";
 import Form from "../ui/Form";
 import InputField from "../ui/InputField";
-import NotesList from "../features/notes/NotesList";
-// import { useCallback } from "react";
 
 const Home = () => {
   const { addNote } = useAddNote();
@@ -26,11 +21,8 @@ const Home = () => {
       content: "",
     },
   });
-
   const { errors } = formState;
-
   const submitForm = async (data) => {
-    // console.log({ formData: data });
     addNote(data);
     reset();
   };
@@ -116,7 +108,7 @@ const Home = () => {
         item
         className="mb-5 h-full rounded-lg bg-slate-900/50  py-5 shadow"
       >
-        <NotesList notes={devNotes} />
+        <NotesList />
       </Grid>
     </Grid>
   );

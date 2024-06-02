@@ -1,8 +1,8 @@
+import cors from 'cors';
 import {} from 'dotenv/config';
 import express from 'express';
-import cors from 'cors';
-import * as routes from './src/routes/index.js';
 import { database } from './src/database/database.js';
+import * as routes from './src/routes/index.js';
 
 const PORT = process.env.PORT;
 const HOST = process.env.HOST;

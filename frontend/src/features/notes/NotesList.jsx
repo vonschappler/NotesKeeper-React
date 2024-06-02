@@ -1,15 +1,12 @@
-import { useGetNotes } from "./useGetNotes";
-
 import { Grid } from "@mui/material";
 import Note from "../../ui/Note";
+import { useGetNotes } from "./useGetNotes";
 
 const NotesList = () => {
   const { notes } = useGetNotes();
-  // console.log(notes);
-
   if (!notes) return null;
 
-  // console.log(notes.map);
+  console.log(notes);
 
   return (
     <Grid container className="flex items-center justify-around gap-4">

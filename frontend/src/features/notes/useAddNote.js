@@ -1,4 +1,4 @@
-import { useQueryClient, useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addData } from "../../services/api";
 
 const useAddNote = () => {
@@ -13,3 +13,4 @@ const useAddNote = () => {
 };
 
 export { useAddNote };
+

@@ -25,4 +25,4 @@ const updateData = async ({ id, data }) => {
   return response;
 };
 
-export { getData, addData, deleteData, updateData };
+export { addData, deleteData, getData, updateData };

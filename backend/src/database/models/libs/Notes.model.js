@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
-import { database } from '../../database.js';
 import { v4 as uuid } from 'uuid';
+import { database } from '../../database.js';
 
 const Notes = database.define('notes', {
   id: {

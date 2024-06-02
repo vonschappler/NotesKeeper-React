@@ -6,9 +6,7 @@ const attributes = {
 };
 
 export const prepareQuery = (req, options) => {
-  // console.log({ pepareOpts: options });
   const toSearch = req?.query;
-  // console.log(toSearch);
   const include = toSearch?.include
     ? toSearch?.include.split(';')
     : options?.includes

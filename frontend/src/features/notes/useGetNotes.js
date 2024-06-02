@@ -4,7 +4,6 @@ import { getData as getNotes } from "../../services/api";
 
 const useGetNotes = () => {
   const [query] = useSearchParams();
-  // console.log(query);
   const {
     isLoading,
     data: { data: notes } = {},

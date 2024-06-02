@@ -9,7 +9,7 @@
     outline: none;
     box-sizing: border-box;
     scroll-behavior: smooth !important;
-    /* line-height: 1.5rem; */
+    line-height: 1.5rem;
   }
 
   body {

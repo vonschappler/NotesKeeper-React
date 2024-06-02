@@ -1,20 +1,27 @@
 import { Dialog, DialogActions, Divider, IconButton } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { updateData } from "../../services/api";
-import { Close, Save } from "@mui/icons-material";
-
+import { Close, Save, Undo } from "@mui/icons-material";
 import Form from "../../ui/Form";
 import InputField from "../../ui/InputField";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUpdateNote } from "./useEditNote";
 
 const EditNote = ({ open, onOpen, note }) => {
-  const { control, reset, handleSubmit, formState, register, watch } =
-    useForm();
+  const navigate = useNavigate();
+  const { updateNote } = useUpdateNote();
+  const { control, reset, handleSubmit, formState, register, watch } = useForm({
+    defaultValues: {
+      title: note?.title,
+      content: note?.content,
+    },
+  });
   const { errors } = formState;
 
   const submitForm = async (data) => {
     const id = note.id;
-    updateData({ id, data });
+    updateNote({ id, data });
     handleClose();
   };
 
@@ -83,7 +90,7 @@ const EditNote = ({ open, onOpen, note }) => {
             hidden={!formState.isDirty}
             onClick={() => reset()}
           >
-            <Close />
+            <Undo />
           </IconButton>
           <IconButton
             type="submit"

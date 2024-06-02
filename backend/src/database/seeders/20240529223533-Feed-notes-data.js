@@ -4,7 +4,6 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     const { notesData } = await import('../../../dev-data/index.js');
-    // console.log(notesData);
     await queryInterface.bulkInsert('notes', notesData);
   },
 
