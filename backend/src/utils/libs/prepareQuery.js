@@ -8,7 +8,7 @@ const attributes = {
 export const prepareQuery = (req, options) => {
   // console.log({ pepareOpts: options });
   const toSearch = req?.query;
-  console.log(toSearch);
+  // console.log(toSearch);
   const include = toSearch?.include
     ? toSearch?.include.split(';')
     : options?.includes
@@ -24,7 +24,7 @@ export const prepareQuery = (req, options) => {
     : options?.related;
   attributes.include = [...config.QUERY_INCLUDE_COLUMNS, ...include];
   attributes.exclude = [...config.QUERY_EXCLUDE_COLUMNS, ...exclude];
-  const limit = Number(req?.query?.limit) || 10;
+  const limit = Number(req?.query?.limit) || 100;
   const page = Number(req?.query?.page) || 1;
   const offset = limit * (page - 1);
   const paranoid = req?.query?.deleted === 'true' ? false : true;

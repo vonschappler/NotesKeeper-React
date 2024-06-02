@@ -2,6 +2,7 @@ import { Add, Close } from "@mui/icons-material";
 import { useForm } from "react-hook-form";
 
 import { devNotes } from "../devData/devNotes";
+import { useAddNote } from "../features/notes/useAddNote";
 // import { sendForm } from "../services/database";
 
 import {
@@ -15,8 +16,10 @@ import {
 import Form from "../ui/Form";
 import InputField from "../ui/InputField";
 import NotesList from "../features/notes/NotesList";
+// import { useCallback } from "react";
 
 const Home = () => {
+  const { addNote } = useAddNote();
   const { formState, reset, handleSubmit, control, register, watch } = useForm({
     defaultValues: {
       title: "",
@@ -27,7 +30,9 @@ const Home = () => {
   const { errors } = formState;
 
   const submitForm = async (data) => {
-    // await sendForm(data);
+    // console.log({ formData: data });
+    addNote(data);
+    reset();
   };
 
   return (

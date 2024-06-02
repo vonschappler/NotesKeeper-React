@@ -5,10 +5,11 @@ const notesRouter = Router();
 
 notesRouter.get('/', controller.getNotes);
 notesRouter.post('/', controller.addNote);
+notesRouter.delete('/', controller.deleteNote);
+notesRouter.patch('/', controller.updateNote);
+
 // notesRouter.post('/', controller.addNotes);
 // notesRouter.get('/:id', controller.getNoteById);
-// notesRouter.patch('/:id', controller.updateNote);
-// notesRouter.delete('/', controller.deleteAllNotes);
 // notesRouter.delete('/:id', controller.deleteNoteById);
 
 export { notesRouter };

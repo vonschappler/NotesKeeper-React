@@ -4,13 +4,13 @@ import { getData as getNotes } from "../../services/api";
 
 const useGetNotes = () => {
   const [query] = useSearchParams();
-  console.log(query);
+  // console.log(query);
   const {
     isLoading,
     data: { data: notes } = {},
     error,
   } = useQuery({
-    queryKey: ["notes", ...query],
+    queryKey: ["notes"],
     queryFn: async () => getNotes({ query }),
     retry: false,
     throwOnError: true,

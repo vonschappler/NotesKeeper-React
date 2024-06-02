@@ -3,8 +3,8 @@ import { database } from '../../database/database.js';
 
 const get = async (req, res, next, Model, options) => {
   const queryOptions = prepareQuery(req, options);
-  console.log({ getOptions: options });
-  console.log({ queryOptions });
+  // console.log({ getOptions: options });
+  // console.log({ queryOptions });
   const data = await Model.findAll(queryOptions);
   if (data.length === 0)
     return next(res.json({ message: 'There are no posts' }));
@@ -15,8 +15,28 @@ const add = async (req, res, next, Model, options) => {
   const toInsert = req.body;
   const result = await Model.create(toInsert);
 
-  if (!result) return next('Some error trying to add data');
+  if (!result) return next('Error adding note');
   return res.send(result);
+};
+
+const rem = async (req, res, next, Model, options) => {
+  const toDelete = req.query;
+  const result = await Model.destroy({ where: toDelete });
+  console.log(result);
+  if (!result) return next('Error deleting note');
+  return res.send({ msg: 'Deleted' });
+};
+
+const upt = async (req, res, next, Model, options) => {
+  const toEdit = req.query;
+  const newData = req.body;
+  console.log(toEdit);
+  console.log(newData);
+  const result = await Model.update(newData, { where: toEdit });
+  console.log(result);
+  if (!result) return next('Error updating note');
+  res.send(result);
+  // res.send('ok');
 };
 
 // const getById = async (req, res, next, Model, options) => {
@@ -40,9 +60,8 @@ const add = async (req, res, next, Model, options) => {
 const factory = {
   add,
   get,
-  // rem,
-  // rst,
-  // upd,
+  rem,
+  upt,
 };
 
 export { factory };
