@@ -1,17 +1,13 @@
+import { Save, Undo } from "@mui/icons-material";
 import { Dialog, DialogActions, Divider, IconButton } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { updateData } from "../../services/api";
-import { Close, Save, Undo } from "@mui/icons-material";
 import Form from "../../ui/Form";
 import InputField from "../../ui/InputField";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useUpdateNote } from "./useEditNote";
 
 const EditNote = ({ open, onOpen, note }) => {
-  const navigate = useNavigate();
   const { updateNote } = useUpdateNote();
-  const { control, reset, handleSubmit, formState, register, watch } = useForm({
+  const { control, reset, handleSubmit, formState, register } = useForm({
     defaultValues: {
       title: note?.title,
       content: note?.content,

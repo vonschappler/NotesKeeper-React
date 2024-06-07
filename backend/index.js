@@ -9,7 +9,10 @@ const HOST = process.env.HOST;
 
 const app = express();
 
-const db = await database.authenticate();
+await database
+  .authenticate()
+  .then(() => console.log('Connected to the database...'))
+  .catch((err) => console.log(err));
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));

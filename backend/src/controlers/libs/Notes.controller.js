@@ -1,5 +1,4 @@
 import { Notes } from '../../database/models/index.js';
-
 import * as utils from '../../utils/index.js';
 
 const getNotes = (req, res, next) =>

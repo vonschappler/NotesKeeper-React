@@ -5,9 +5,6 @@ import { useGetNotes } from "./useGetNotes";
 const NotesList = () => {
   const { notes } = useGetNotes();
   if (!notes) return null;
-
-  console.log(notes);
-
   return (
     <Grid container className="flex items-center justify-around gap-4">
       {!notes.data && (

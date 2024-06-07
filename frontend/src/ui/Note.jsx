@@ -23,7 +23,6 @@ const Note = ({ note }) => {
   const handleOpen = (toEdit) => {
     setOpen((curVal) => !curVal);
     setEdtNote((note) => toEdit);
-
     open && setEdtNote({});
   };
 

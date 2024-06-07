@@ -15,7 +15,7 @@ import InputField from "../ui/InputField";
 
 const Home = () => {
   const { addNote } = useAddNote();
-  const { formState, reset, handleSubmit, control, register, watch } = useForm({
+  const { formState, reset, handleSubmit, control, register } = useForm({
     defaultValues: {
       title: "",
       content: "",

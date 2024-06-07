@@ -1,11 +1,33 @@
 import { Sequelize } from 'sequelize';
 
-// const DB_NAME = process.env.DB_NAME ?? 'keeper_pg';
-// const DB_USER = process.env.DB_USER ?? 'postgres';
-// const DB_PASS = process.env.DB_PASS ?? 'postgres';
-// const DB_HOST = process.env.DB_HOST ?? 'localhost';
-// const DB_PORT = Number(process.env.DB_PORT) ?? 5432;
-// const DB_DLCT = process.env.DB_DLCT ?? 'postgres';
+
+// FOR DEVELOPMENT
+
+// const DB_NAME = process.env.DB_NAME;
+// const DB_USER = process.env.DB_USER;
+// const DB_PASS = process.env.DB_PASS;
+// const DB_HOST = process.env.DB_HOST;
+// const DB_PORT = Number(process.env.DB_PORT);
+// const DB_DLCT = process.env.DB_DLCT;
+// const database = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
+//   host: DB_HOST,
+//   port: DB_PORT,
+//   dialect: DB_DLCT,
+//   logging: (msg) => console.log(msg),
+//   dialectOptions: {
+//     dataStrings: true,
+//     typeCast: true,
+//     useUTC: true,
+//     },
+//   },
+//   timezone: '-3:00',
+// });
+
+
+
+
+
+// FOR PRODUCTION
 const DB_NAME_PROD = process.env.DB_NAME_PROD;
 const DB_USER_PROD = process.env.DB_USER_PROD;
 const DB_PASS_PROD = process.env.DB_PASS_PROD;
@@ -38,3 +60,4 @@ const database = new Sequelize(DB_NAME_PROD, DB_USER_PROD, DB_PASS_PROD, {
 });
 
 export { database };
+
