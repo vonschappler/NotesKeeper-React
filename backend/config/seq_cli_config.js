@@ -46,7 +46,7 @@ module.exports = {
     dialectOptions: {
       bigNumberStrings: true,
       ssl: {
-        ca: fs.readFileSync(__dirname + '/ca.pem'),
+        ca: fs.readFileSync(__dirname + '../ca.pem'),
       },
     },
     migrationStorage: 'sequelize',

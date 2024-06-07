@@ -18,7 +18,8 @@
     "dev:seeds:undo:to": "npx sequelize-cli db:seed:undo:all --to",
     "dev:seeds:undo:all": "npx sequelize-cli db:seed:undo:all",
     "dev:seeds:run:to": "npx sequelize-cli db:seed --seed",
-    "dev:seeds:run": "npx sequelize-cli db:seed:all"
+    "dev:seeds:run": "npx sequelize-cli db:seed:all",
+    "start": "node ."
   },
   "dependencies": {
     "cors": "^2.8.5",
